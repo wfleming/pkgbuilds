@@ -9,7 +9,7 @@ pkgdesc='Pack, ship and run any application as a lightweight container'
 arch=('x86_64')
 url='https://www.docker.com/'
 license=('Apache')
-depends=('runc' 'containerd' 'bridge-utils' 'iproute2' 'device-mapper' 'sqlite' 'systemd' 'libseccomp')
+depends=('runc' 'containerd<=0.2.2-1' 'bridge-utils' 'iproute2' 'device-mapper' 'sqlite' 'systemd' 'libseccomp')
 makedepends=('git' 'binutils<=2.26.1' 'go<2:1.6' 'btrfs-progs' 'go-md2man')
 optdepends=('btrfs-progs: btrfs backend support'
             'lxc: lxc backend support')

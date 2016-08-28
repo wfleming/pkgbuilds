@@ -11,9 +11,10 @@ everything happy.
   ```
   $ downgrade go # choose the latest 1.5.x version
   $ downgrade binutils # choose 2.26.1
+  $ downgrade containerd # choose 0.2.2-1
   ```
 
-  Recommend that you choose to add both of those packages to `IgnorePkg` when
+  Recommend that you choose to add all of those packages to `IgnorePkg` when
   prompted.
 
 2. ./rebuild.sh
