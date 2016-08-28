@@ -1,0 +1,4 @@
+src/
+pkg/
+docker/
+docker-*.tar.xz
