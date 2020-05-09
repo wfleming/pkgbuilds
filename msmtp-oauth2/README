@@ -1,0 +1,11 @@
+Fork of https://aur.archlinux.org/packages/msmtp-oauth2/
+
+Because I have 2 accounts in msmtp - one Gmail one that must use this hack, and
+another that needs to us regular `PLAIN` auth and is therefore *broken* by this
+hack.
+
+So this fork adjusts this to install the just the binary as `msmtp-oauth2`.
+
+## Building & Installing
+
+makepkg --install --clean
