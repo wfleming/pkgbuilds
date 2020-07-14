@@ -1,0 +1,38 @@
+# Maintainer: Will Fleming <will@flemi.ng>
+
+pkgname=('vanta-agent')
+pkgver=1.5.9
+pkgrel=1
+pkgdesc="The vanta agent"
+arch=('x86_64')
+url="https://vanta.com"
+license=('Proprietary')
+# from https://raw.githubusercontent.com/VantaInc/vanta-agent-scripts/master/install-linux.sh
+source=("https://vanta-agent.s3.amazonaws.com/v${pkgver}/vanta.deb")
+sha256sums=('d3a26d7f28185eeaccaa585e7adbf9b28652b95094d5b3acedcac50d6f7ef209')
+
+build() {
+  # apparently the deb gets downloaded and unpacked automatically
+  tar -xzf control.tar.gz
+  tar -xzf data.tar.gz
+}
+
+package() {
+  mkdir "${pkgdir}/etc"
+  install --preserve-timestamps etc/vanta.conf "${pkgdir}/etc/vanta.conf"
+  cp --archive ./usr/ "${pkgdir}/usr"
+  cp --archive ./var/ "${pkgdir}/var"
+}
+
+post_install() {
+  systemctl enable vanta.service
+
+cat <<EOF
+The Vanta systemd service has been enabled.
+
+To configure the Vanta agent, open /etc/vanta.conf and replace the `AGENT_KEY`
+and `OWNER_EMAIL` keys with the values you were given.
+
+Then start the vanta.service systemd unit to start the service immediately.
+EOF
+}

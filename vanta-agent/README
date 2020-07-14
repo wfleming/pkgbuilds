@@ -1,0 +1,10 @@
+The Vanta agent runs on machines to confirm they meet internal security
+requirements.
+
+Vanta's official installer is at
+https://raw.githubusercontent.com/VantaInc/vanta-agent-scripts/master/install-linux.sh:
+They support DEB & RPM packages themselves.
+
+This PKGBUILD extracts the DEB and installs the agent. Instructions for
+configuration are printed after installation.
+
